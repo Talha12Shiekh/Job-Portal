@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import Navbar from '../Components/Navbar'
 import Home from '../Screens/Home'
 import './App.css'
