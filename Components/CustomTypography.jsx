@@ -7,6 +7,7 @@ const CustomTypography = ({text,...props}) => {
       textTransform="capitalize"
       variant="h6"
       color="white"
+      className="poppins"
       {...props}
     >
       {text}

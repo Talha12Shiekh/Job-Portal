@@ -16,10 +16,10 @@ const Home = () => {
     >
         <Box width="100%">
        <Grid p={2} container spacing={2} display="flex" justifyContent={"center"}>
-  <Grid size={6} alignSelf={"center"}>
-    <Typography variant='h4' color="white" gutterBottom>4536+ Jobs listed</Typography>
-    <Typography variant='h2' color="white" fontWeight="bold" gutterBottom>Find your Dream Job</Typography>
-    <Typography variant='body1' color="white" mb={5}>Your Gateway to the Perfect Job—Connecting Talent with Opportunity</Typography>
+  <Grid size={7} alignSelf={"center"}>
+    <Typography variant='h4' color="white" className="poppins" gutterBottom>4536+ Jobs listed</Typography>
+    <Typography variant='h2' color="white" className="poppins" fontWeight="bold" gutterBottom>Find your Dream Job</Typography>
+    <Typography variant='body1' color="white" className="poppins" mb={5}>Your Gateway to the Perfect Job—Connecting Talent with Opportunity</Typography>
     <Button variant='contained' sx={{bgcolor:GREEN_COLOR,border:"none",boxShadow:"none",p:2}}>
         <CustomTypography text="Upload Your Resume" fontWeight="bold" fontSize={"large"}/>
     </Button>
