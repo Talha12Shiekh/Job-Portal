@@ -4,20 +4,19 @@ import {
   Container,
   Grid2 as Grid,
   Typography,
-  useMediaQuery,
 } from "@mui/material";
 import React from "react";
 import bgImage from "../public/backgroundImage.webp";
 import illustration from "../public/illustration.webp";
 import CustomTypography from "../Components/CustomTypography";
 import { GREEN_COLOR } from "../Constants";
-import { useTheme } from "@mui/material/styles";
+import useResponsivness from "../Hooks/useResponsivness";
 
 const Home = () => {
-  const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.up("lg"));
+  const matches = useResponsivness("up","lg")
   return (
     <Container
+    component="section"
     disableGutters
       maxWidth={false}
       sx={{ display: "flex", justifyContent: "center", alignItems: "center",p:matches ? 0:2 }}
@@ -27,7 +26,7 @@ const Home = () => {
       }}
       
     >
-      <Box width="100%">
+      <Box width="100%" component="div">
         <Grid
           p={2}
           container
