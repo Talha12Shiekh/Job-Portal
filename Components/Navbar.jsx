@@ -1,12 +1,25 @@
-import { AppBar, Box, Button, Container, Typography } from "@mui/material";
-import React from "react";
+import { AppBar, Box, Button, Container, IconButton, Typography, useMediaQuery } from "@mui/material";
+import React, { useState } from "react";
 import bgImage from "../public/backgroundImage.webp";
 import logo from "../public/logo.webp";
 import { GREEN_COLOR, pages } from "../Constants";
 import CustomTypography from "./CustomTypography";
+import MenuIcon from '@mui/icons-material/Menu';
+import { useTheme } from "@mui/material/styles";
+import SideBar from "./SideBar";
+import LoginAndSignUp from "./LoginAndSignUp";
 
 const Navbar = () => {
+  const theme = useTheme();
+  const [open,setopen] = useState(false);
+  const matches = useMediaQuery(theme.breakpoints.down("lg"));
+
   return (
+    <>
+     <SideBar
+    open={open}
+    setopen={setopen}
+    />
     <AppBar
     position="static"
       component="nav"
@@ -19,7 +32,12 @@ const Navbar = () => {
         <Box component="div">
           <img src={logo} alt="Loading..." />
         </Box>
-        <Box component="div" display="flex" gap={6}>
+        {matches ? <Box component="div">
+          <IconButton onClick={() => setopen(p => !p)}>
+          <MenuIcon sx={{fontSize:50,color:"white"}}/>
+          </IconButton>
+        </Box> : <>
+        <Box component="div" display="flex" gap={6}> 
             {
                 pages.map(link => (
                     <Button variant="text" key={link}>
@@ -27,18 +45,14 @@ const Navbar = () => {
                 </Button> 
                 ))
             }
-           
-        </Box>
-        <Box component="div" display="flex" gap={3}>
-          <Button variant="outlined" color="success" sx={{borderWidth:2,borderColor:GREEN_COLOR}}>
-            <CustomTypography text="Login" />
-          </Button>
-          <Button variant="contained" sx={{bgcolor:GREEN_COLOR}}>
-            <CustomTypography text="Post a Job" /> 
-          </Button>
-        </Box>
+        </Box> 
+        <LoginAndSignUp/>
+        </>}
+         
+   
       </Container>
     </AppBar>
+    </>
   );
 };
 
