@@ -1,4 +1,4 @@
-import { Box, Button, Typography, IconButton } from "@mui/material";
+import { Box, Button, Typography, IconButton, Container } from "@mui/material";
 import React, { useState } from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -6,6 +6,7 @@ import { GREEN_COLOR, GREY_COLOR, LIGHT_GREEN_COLOR } from "../Constants";
 import CustomTypography from "./CustomTypography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import useResponsivness from "../Hooks/useResponsivness";
 
 const TextAndIcon = ({ text, Icon }) => {
   return (
@@ -25,34 +26,39 @@ const TextAndIcon = ({ text, Icon }) => {
 
 const SingleJobCard = ({name,location,country,img}) => {
   const [liked, setliked] = useState(false);
+  const checkingMD = useResponsivness("down","md");
   return (
-    <>
+    <Box display="flex" justifyContent="center" component="section">
       <Box
-        width="100%"
+        width={"100%"}
         mt={4}
         sx={{cursor:"pointer",":hover":{boxShadow:`2px 2px 15px grey`}}}
         display="flex"
         justifyContent="space-between"
         alignItems="center"
+        flexDirection={checkingMD ? "column" : "row"}
         bgcolor="white"
-        p={5}
+        p={3}
       >
-        <Box display="flex" gap={5}>
+        <Box display="flex" flexDirection={checkingMD ? "column" : "row"} gap={5}>
           <Box
             bgcolor={GREY_COLOR}
             p={2}
             display="flex"
             justifyContent="center"
+            alignSelf="center"
             borderRadius={2}
             alignItems="center"
+            width={100}
+            height={100}
           >
             {img}
           </Box>
-          <Box>
+          <Box display="flex" flexDirection="column" justifyContent={"center"} alignItems="flex-start" >
             <Typography variant="h5" className="poppins">
               {name}
             </Typography>
-            <Box display="flex" mt={2} gap={5}>
+            <Box display="flex" mt={2} gap={checkingMD ? 2 : 5}>
               <TextAndIcon
                 text={country}
                 Icon={() => <LocationOnIcon sx={{ fontSize: 20, mr: 0.5 }} />}
@@ -64,7 +70,7 @@ const SingleJobCard = ({name,location,country,img}) => {
             </Box>
           </Box>
         </Box>
-        <Box display="flex">
+        <Box display="flex" mt={checkingMD ? 5 : 0}>
           <IconButton
             onClick={() => setliked((p) => !p)}
             sx={{ p: 0, mr: 2 }}
@@ -92,7 +98,7 @@ const SingleJobCard = ({name,location,country,img}) => {
           </Box>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 

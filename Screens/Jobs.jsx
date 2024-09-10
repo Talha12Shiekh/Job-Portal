@@ -11,8 +11,8 @@ const Jobs = () => {
 
   const handleBgChange = () => setbgfilled((p) => !p);
   return (
-    <Box width="100%" bgcolor={GREY_COLOR}>
-      <Container maxWidth="lg" sx={{ p: 10 }}>
+    <Box py={5} width="100%" bgcolor={GREY_COLOR}>
+      <Container maxWidth="lg" >
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Typography variant={matches ? "h5" : "h4"} className="poppins">
             Job Listing
