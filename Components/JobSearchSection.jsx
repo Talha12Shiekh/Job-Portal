@@ -54,7 +54,7 @@ const JobSearchSection = () => {
               onChange={handleChange}
             >
               {COUNTRIES.map((elem) => {
-                return <MenuItem value={elem}>{elem}</MenuItem>;
+                return <MenuItem key={elem} value={elem}>{elem}</MenuItem>;
               })}
             </Select>
           </FormControl>
@@ -71,6 +71,7 @@ const JobSearchSection = () => {
           {searches.map((search) => {
             return (
               <Chip
+                key={search}
                 label={search}
                 sx={{ fontSize: 15, mr: 1, mt: matches ? 2 : 0 }}
                 variant="outlined"

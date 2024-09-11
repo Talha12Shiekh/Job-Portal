@@ -9,3 +9,16 @@
 .poppins{
   font-family: "Poppins", system-ui !important;
 }
+
+.job_or_expert_section_bg::after{
+  position: absolute;
+  content: "";
+  inset: 0;
+  background: blue;
+  opacity: .8;
+  z-index: -1;
+}
+
+.job_or_expert_section_bg{
+  isolation: isolate;
+}

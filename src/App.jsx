@@ -4,6 +4,7 @@ const Home = lazy(() => import("../Screens/Home"))
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import './App.css'
 import JobSearchSection from "../Components/JobSearchSection";
+import JobOrExpert from "../Components/JobOrExpert";
 const Categories = lazy(() => import("../Screens/Categories"))
 const Jobs = lazy(() => import("../Screens/Jobs"))
 
@@ -17,6 +18,7 @@ function App() {
      <JobSearchSection/>
      <Categories/>
      <Jobs/>
+     <JobOrExpert/>
     </Suspense>
   )
 }
