@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+:root{
+  --GREEN-COLOR: #00D363;
+}
+
 .poppins{
   font-family: "Poppins", system-ui !important;
 }
@@ -21,4 +25,19 @@
 
 .job_or_expert_section_bg{
   isolation: isolate;
+}
+
+.singleicon{
+   width: 40px;
+   height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50px;
+   border: 1px solid grey;
+   overflow: hidden;
+}
+.singleicon:hover{
+  background-color: var(--GREEN-COLOR);
+  border-width: 0px;
 }

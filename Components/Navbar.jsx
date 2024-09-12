@@ -14,10 +14,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SideBar from "./SideBar";
 import LoginAndSignUp from "./LoginAndSignUp";
 import useResponsivness from "../Hooks/useResponsivness";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setopen] = useState(false);
-  const matches = useResponsivness("down","lg")
+  const matches = useResponsivness("down","lg");
+  const navigate = useNavigate();
 
   return (
     <>
@@ -40,7 +42,7 @@ const Navbar = () => {
           }}
           component="section"
         >
-          <Box component="div">
+          <Box component="div" onClick={() => navigate("/")}>
             <img src={logo} alt="Loading..." />
           </Box>
           {matches ? (
@@ -52,9 +54,9 @@ const Navbar = () => {
           ) : (
             <>
               <Box component="div" display="flex" gap={6}>
-                {pages.map((link) => (
-                  <Button variant="text" key={link}>
-                    <CustomTypography text={link} />
+                {pages.map(({key,text,link}) => (
+                  <Button onClick={() => navigate(link)} variant="text" key={key}>
+                    <CustomTypography text={text} />
                   </Button>
                 ))}
               </Box>
