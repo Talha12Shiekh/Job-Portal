@@ -5,9 +5,9 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export const pages = [
-  { text: "Home", link: "/",key:1 },
-  { text: "Browse Jobs", link: "browsejobs",key:2 },
-  { text: "Contact", link: "contacts",key:3 },
+  { text: "Home", link: "/", key: 1 },
+  { text: "Browse Jobs", link: "browsejobs", key: 2 },
+  { text: "Contact", link: "contacts", key: 3 },
 ];
 
 export const searches = [

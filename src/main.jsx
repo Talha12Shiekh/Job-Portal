@@ -9,6 +9,7 @@ const Jobs = lazy(() => import("../Screens/Jobs"));
 import JobSearchSection from "../Components/JobSearchSection";
 import JobOrExpert from "../Components/JobOrExpert";
 import Categories from "../Screens/Categories";
+import JobDetailsScreen from "../Screens/JobDetailsScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
       {
         path: "contacts",
         element: <h1>Contacts</h1>,
-      }
+      },
+      {
+        path: "jobdetailsscreen",
+        element: <JobDetailsScreen/>,
+      },
     ],
   },
 ]);

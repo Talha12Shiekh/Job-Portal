@@ -12,7 +12,7 @@ const Jobs = () => {
   const handleBgChange = () => setbgfilled((p) => !p);
   return (
     <Box py={5} width="100%" bgcolor={GREY_COLOR}>
-      <Container maxWidth="lg" >
+      <Container maxWidth="lg">
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Typography variant={matches ? "h5" : "h4"} className="poppins">
             Job Listing
@@ -31,15 +31,36 @@ const Jobs = () => {
             />
           </Button>
         </Box>
-        {JOBS.map(({ key, name, location, country, img }) => (
-          <SingleJobCard
-            name={name}
-            location={location}
-            country={country}
-            img={img}
-            key={key}
-          />
-        ))}
+        {JOBS.map((job) => {
+          const {
+            name,
+            location,
+            country,
+            img,
+            description,
+            responsibility,
+            qualifications,
+            benefits,
+            salary,
+            vacancy,
+            publishedOn,
+            key
+          } = job;
+          const jobobject = {
+            name,
+            location,
+            country,
+            img,
+            description,
+            responsibility,
+            qualifications,
+            benefits,
+            salary,
+            vacancy,
+            publishedOn,
+          }
+          return <SingleJobCard key={key} {...jobobject} />;
+        })}
       </Container>
     </Box>
   );

@@ -7,6 +7,7 @@ import CustomTypography from "./CustomTypography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import useResponsivness from "../Hooks/useResponsivness";
+import { useNavigate } from "react-router-dom";
 
 const TextAndIcon = ({ text, Icon }) => {
   return (
@@ -24,15 +25,44 @@ const TextAndIcon = ({ text, Icon }) => {
   );
 };
 
-const SingleJobCard = ({name,location,country,img}) => {
+const SingleJobCard = (singlejob) => {
   const [liked, setliked] = useState(false);
-  const checkingMD = useResponsivness("down","md");
+  const {
+    name,
+    location,
+    country,
+    img,
+    description,
+    responsibility,
+    qualifications,
+    benefits,
+    salary,
+    vacancy,
+    publishedOn,
+    key
+  } = singlejob;
+  const jobobject = {
+    name,
+    location,
+    country,
+    description,
+    responsibility,
+    qualifications,
+    benefits,
+    salary,
+    vacancy,
+    publishedOn,
+  }
+  const checkingMD = useResponsivness("down", "md");
+  const navigate = useNavigate();
+
+
   return (
-    <Box display="flex" justifyContent="center" component="section">
+    <Box display="flex" key={key} justifyContent="center" component="section">
       <Box
         width={"100%"}
         mt={4}
-        sx={{cursor:"pointer",":hover":{boxShadow:`2px 2px 15px grey`}}}
+        sx={{ cursor: "pointer", ":hover": { boxShadow: `2px 2px 15px grey` } }}
         display="flex"
         justifyContent="space-between"
         alignItems="center"
@@ -40,7 +70,11 @@ const SingleJobCard = ({name,location,country,img}) => {
         bgcolor="white"
         p={3}
       >
-        <Box display="flex" flexDirection={checkingMD ? "column" : "row"} gap={5}>
+        <Box
+          display="flex"
+          flexDirection={checkingMD ? "column" : "row"}
+          gap={5}
+        >
           <Box
             bgcolor={GREY_COLOR}
             p={2}
@@ -54,7 +88,12 @@ const SingleJobCard = ({name,location,country,img}) => {
           >
             {img}
           </Box>
-          <Box display="flex" flexDirection="column" justifyContent={"center"} alignItems="flex-start" >
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent={"center"}
+            alignItems="flex-start"
+          >
             <Typography variant="h5" className="poppins">
               {name}
             </Typography>
@@ -71,10 +110,7 @@ const SingleJobCard = ({name,location,country,img}) => {
           </Box>
         </Box>
         <Box display="flex" mt={checkingMD ? 5 : 0}>
-          <IconButton
-            onClick={() => setliked((p) => !p)}
-            sx={{ p: 0, mr: 2 }}
-          >
+          <IconButton onClick={() => setliked((p) => !p)} sx={{ p: 0, mr: 2 }}>
             <Box
               width="100%"
               p={1}
@@ -82,7 +118,7 @@ const SingleJobCard = ({name,location,country,img}) => {
               display="flex"
               justifyContent="center"
               alignItems="center"
-                borderRadius={5}
+              borderRadius={5}
             >
               {!liked ? (
                 <FavoriteBorderIcon sx={{ color: GREEN_COLOR }} />
@@ -92,7 +128,12 @@ const SingleJobCard = ({name,location,country,img}) => {
             </Box>
           </IconButton>
           <Box>
-            <Button variant="outlined" color="success" sx={{ px: 2, py: 1 }}>
+            <Button
+              onClick={() => navigate("jobdetailsscreen",{state:jobobject})}
+              variant="outlined"
+              color="success"
+              sx={{ px: 2, py: 1 }}
+            >
               <CustomTypography text="Apply Now" color={GREEN_COLOR} />
             </Button>
           </Box>
