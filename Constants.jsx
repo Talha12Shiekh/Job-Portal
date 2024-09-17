@@ -75,12 +75,7 @@ export const JOBS = [
     key: 1,
     location: "Part-time",
     country: "Pakistan",
-    img: (
-      <img
-        src="https://preview.colorlib.com/theme/jobboard2/img/svg_icon/1.svg"
-        alt="Loading..."
-      />
-    ),
+    img: "https://preview.colorlib.com/theme/jobboard2/img/svg_icon/1.svg",
     description:
       "As a Software Engineer, you will develop, test, and maintain software applications that drive our core services. You’ll work closely with a dynamic team, translating business needs into technical solutions and optimizing our system for performance.",
     responsibility: [
@@ -94,8 +89,8 @@ export const JOBS = [
       "Strong problem-solving skills and ability to work in an agile environment.",
     ],
     benefits:
-      "Health insurance, flexible working hours, remote work options, and professional development opportunities.",
-    salary: "$60,000 - $80,000 per year",
+      "Health insurance, flexible working hours, remote work options, and professional development opportunities. Health insurance, flexible working hours, remote work options, and professional development opportunities.",
+    salary: "$60,000 - $80,000",
     vacancy: 3,
     publishedOn: "2024-09-01",
   },
@@ -104,12 +99,7 @@ export const JOBS = [
     key: 2,
     location: "Full-time",
     country: "India",
-    img: (
-      <img
-        src="https://preview.colorlib.com/theme/jobboard2/img/svg_icon/2.svg"
-        alt="Loading..."
-      />
-    ),
+    img: "https://preview.colorlib.com/theme/jobboard2/img/svg_icon/2.svg",
     description:
       "We are seeking a creative UI/UX Designer who will be responsible for designing seamless and engaging user interfaces for web and mobile applications. You will collaborate with developers and product managers to create designs that enhance user experience.",
     responsibility: [
@@ -123,8 +113,8 @@ export const JOBS = [
       "Proficiency in design tools like Sketch, Figma, and Adobe XD.",
     ],
     benefits:
-      "Comprehensive health coverage, annual bonus, stock options, and a creative work environment.",
-    salary: "$70,000 - $90,000 per year",
+      "Comprehensive health coverage, annual bonus, stock options, and a creative work environment. Comprehensive health coverage, annual bonus, stock options, and a creative work environment.",
+    salary: "$70,000 - $90,000",
     vacancy: 2,
     publishedOn: "2024-08-15",
   },
@@ -133,12 +123,7 @@ export const JOBS = [
     key: 3,
     location: "Remote",
     country: "China",
-    img: (
-      <img
-        src="https://preview.colorlib.com/theme/jobboard2/img/svg_icon/3.svg"
-        alt="Loading..."
-      />
-    ),
+    img: "https://preview.colorlib.com/theme/jobboard2/img/svg_icon/3.svg",
     description:
       "As a Data Scientist, you will analyze large datasets to uncover trends and insights that will influence business decisions. You will work closely with product teams to implement machine learning models and predictive analytics solutions.",
     responsibility: [
@@ -152,8 +137,8 @@ export const JOBS = [
       "Proficiency in machine learning frameworks such as TensorFlow or PyTorch.",
     ],
     benefits:
-      "Work from home, paid time off, wellness programs, and opportunities for continuing education.",
-    salary: "$90,000 - $120,000 per year",
+      "Work from home, paid time off, wellness programs, and opportunities for continuing education. Work from home, paid time off, wellness programs, and opportunities for continuing education.",
+    salary: "$90,000 - $120,000",
     vacancy: 4,
     publishedOn: "2024-09-03",
   },
@@ -162,12 +147,7 @@ export const JOBS = [
     key: 4,
     location: "Full-time",
     country: "Australia",
-    img: (
-      <img
-        src="https://preview.colorlib.com/theme/jobboard2/img/svg_icon/4.svg"
-        alt="Loading..."
-      />
-    ),
+    img: "https://preview.colorlib.com/theme/jobboard2/img/svg_icon/4.svg",
     description:
       "The Digital Marketing Manager will be responsible for developing and executing digital marketing strategies across various online platforms. You will work with a cross-functional team to drive traffic, enhance engagement, and grow our brand’s presence.",
     responsibility: [
@@ -181,8 +161,8 @@ export const JOBS = [
       "Excellent understanding of social media platforms, email marketing, and online advertising.",
     ],
     benefits:
-      "Flexible working hours, health and dental insurance, team-building events, and performance-based bonuses.",
-    salary: "£45,000 - £60,000 per year",
+      "Flexible working hours, health and dental insurance, team-building events, and performance-based bonuses Flexible working hours, health and dental insurance, team-building events, and performance-based bonuses.",
+    salary: "£45,000 - £60,000",
     vacancy: 1,
     publishedOn: "2024-08-25",
   },
@@ -191,12 +171,7 @@ export const JOBS = [
     key: 5,
     location: "Full-time",
     country: "Spain",
-    img: (
-      <img
-        src="https://preview.colorlib.com/theme/jobboard2/img/svg_icon/5.svg"
-        alt="Loading..."
-      />
-    ),
+    img: "https://preview.colorlib.com/theme/jobboard2/img/svg_icon/5.svg",
     description:
       "We are looking for an experienced Product Manager to lead the development and launch of innovative products. You will work with stakeholders to gather requirements, prioritize tasks, and ensure successful delivery of high-quality products.",
     responsibility: [
@@ -210,8 +185,8 @@ export const JOBS = [
       "Strong leadership and communication skills.",
     ],
     benefits:
-      "Competitive salary, health benefits, annual travel stipend, and opportunities for career growth.",
-    salary: "€60,000 - €80,000 per year",
+      "Competitive salary, health benefits, annual travel stipend, and opportunities for career growth Competitive salary, health benefits, annual travel stipend, and opportunities for career growth",
+    salary: "€60,000 - €80,000",
     vacancy: 2,
     publishedOn: "2024-09-02",
   },
@@ -220,12 +195,7 @@ export const JOBS = [
     key: 6,
     location: "Remote",
     country: "America",
-    img: (
-      <img
-        src="https://preview.colorlib.com/theme/jobboard2/img/svg_icon/6.svg"
-        alt="Loading..."
-      />
-    ),
+    img: "https://preview.colorlib.com/theme/jobboard2/img/svg_icon/6.svg",
     description:
       "The DevOps Engineer will automate and optimize our software development process, ensuring efficient CI/CD pipelines and reliable deployment workflows. You will collaborate with developers to improve system scalability, performance, and security.",
     responsibility: [
@@ -239,8 +209,8 @@ export const JOBS = [
       "Proficiency with AWS, Docker, Kubernetes, and CI/CD tools.",
     ],
     benefits:
-      "Remote work flexibility, health and wellness programs, stock options, and annual performance bonuses.",
-    salary: "$80,000 - $100,000 per year",
+      "Remote work flexibility, health and wellness programs, stock options, and annual performance bonuses Remote work flexibility, health and wellness programs, stock options, and annual performance bonuses",
+    salary: "$80,000 - $100,000",
     vacancy: 3,
     publishedOn: "2024-08-30",
   },
@@ -454,3 +424,5 @@ export const COUNTRIES = [
   "Zambia",
   "Zimbabwe",
 ];
+
+

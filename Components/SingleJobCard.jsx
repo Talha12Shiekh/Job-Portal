@@ -25,6 +25,100 @@ const TextAndIcon = ({ text, Icon }) => {
   );
 };
 
+export const JobIcon = ({ img }) => {
+  return (
+    <Box
+      bgcolor={GREY_COLOR}
+      p={2}
+      display="flex"
+      justifyContent="center"
+      alignSelf="center"
+      borderRadius={2}
+      alignItems="center"
+      width={100}
+      height={100}
+    >
+      <img src={img} alt="Loading..." />
+    </Box>
+  );
+};
+
+export const NameAndLocation = ({ name, country, location }) => {
+  const checkingMD = useResponsivness("down", "md");
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent={"center"}
+      alignItems="flex-start"
+    >
+      <Typography variant="h5" className="poppins">
+        {name}
+      </Typography>
+      <Box display="flex" mt={2} gap={checkingMD ? 2 : 5}>
+        <TextAndIcon
+          text={country}
+          Icon={() => <LocationOnIcon sx={{ fontSize: 20, mr: 0.5 }} />}
+        />
+        <TextAndIcon
+          text={location}
+          Icon={() => <AccessTimeIcon sx={{ fontSize: 20, mr: 1 }} />}
+        />
+      </Box>
+    </Box>
+  );
+};
+
+export const NameLocationAndJobIconContainer = ({ children }) => {
+  const checkingMD = useResponsivness("down", "md");
+  return (
+    <Box display="flex" flexDirection={checkingMD ? "column" : "row"} gap={5}>
+      {children}
+    </Box>
+  );
+};
+
+export const HeartButton = ({ liked, setliked }) => {
+  return (
+    <IconButton onClick={() => setliked((p) => !p)} sx={{ p: 0, mr: 2 }}>
+      <Box
+        width="100%"
+        p={1}
+        bgcolor={LIGHT_GREEN_COLOR}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        borderRadius={5}
+      >
+        {!liked ? (
+          <FavoriteBorderIcon sx={{ color: GREEN_COLOR }} />
+        ) : (
+          <FavoriteIcon sx={{ color: GREEN_COLOR }} />
+        )}
+      </Box>
+    </IconButton>
+  );
+};
+
+export const WholeContainer = ({ children,givepadding = true }) => {
+  const checkingMD = useResponsivness("down", "md");
+  return (
+    <Box
+      width={"100%"}
+      mt={4}
+      sx={{ cursor: "pointer", ":hover": { boxShadow: `2px 2px 15px grey` } }}
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      flexDirection={checkingMD ? "column" : "row"}
+      bgcolor="white"
+      p={givepadding ? 3 : 0}
+    >
+      {children}
+    </Box>
+  );
+};
+
 const SingleJobCard = (singlejob) => {
   const [liked, setliked] = useState(false);
   const {
@@ -39,7 +133,7 @@ const SingleJobCard = (singlejob) => {
     salary,
     vacancy,
     publishedOn,
-    key
+    key,
   } = singlejob;
   const jobobject = {
     name,
@@ -52,84 +146,27 @@ const SingleJobCard = (singlejob) => {
     salary,
     vacancy,
     publishedOn,
-  }
+    img,
+  };
   const checkingMD = useResponsivness("down", "md");
   const navigate = useNavigate();
 
-
   return (
     <Box display="flex" key={key} justifyContent="center" component="section">
-      <Box
-        width={"100%"}
-        mt={4}
-        sx={{ cursor: "pointer", ":hover": { boxShadow: `2px 2px 15px grey` } }}
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        flexDirection={checkingMD ? "column" : "row"}
-        bgcolor="white"
-        p={3}
-      >
+      <WholeContainer>
         <Box
           display="flex"
           flexDirection={checkingMD ? "column" : "row"}
           gap={5}
         >
-          <Box
-            bgcolor={GREY_COLOR}
-            p={2}
-            display="flex"
-            justifyContent="center"
-            alignSelf="center"
-            borderRadius={2}
-            alignItems="center"
-            width={100}
-            height={100}
-          >
-            {img}
-          </Box>
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent={"center"}
-            alignItems="flex-start"
-          >
-            <Typography variant="h5" className="poppins">
-              {name}
-            </Typography>
-            <Box display="flex" mt={2} gap={checkingMD ? 2 : 5}>
-              <TextAndIcon
-                text={country}
-                Icon={() => <LocationOnIcon sx={{ fontSize: 20, mr: 0.5 }} />}
-              />
-              <TextAndIcon
-                text={location}
-                Icon={() => <AccessTimeIcon sx={{ fontSize: 20, mr: 1 }} />}
-              />
-            </Box>
-          </Box>
+          <JobIcon img={img} />
+          <NameAndLocation name={name} country={country} location={location} />
         </Box>
         <Box display="flex" mt={checkingMD ? 5 : 0}>
-          <IconButton onClick={() => setliked((p) => !p)} sx={{ p: 0, mr: 2 }}>
-            <Box
-              width="100%"
-              p={1}
-              bgcolor={LIGHT_GREEN_COLOR}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              borderRadius={5}
-            >
-              {!liked ? (
-                <FavoriteBorderIcon sx={{ color: GREEN_COLOR }} />
-              ) : (
-                <FavoriteIcon sx={{ color: GREEN_COLOR }} />
-              )}
-            </Box>
-          </IconButton>
+          <HeartButton liked={liked} setliked={setliked} />
           <Box>
             <Button
-              onClick={() => navigate("jobdetailsscreen",{state:jobobject})}
+              onClick={() => navigate("jobdetailsscreen", { state: jobobject })}
               variant="outlined"
               color="success"
               sx={{ px: 2, py: 1 }}
@@ -138,7 +175,7 @@ const SingleJobCard = (singlejob) => {
             </Button>
           </Box>
         </Box>
-      </Box>
+      </WholeContainer>
     </Box>
   );
 };
