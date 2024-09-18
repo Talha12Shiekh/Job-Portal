@@ -41,3 +41,7 @@
   background-color: var(--GREEN-COLOR);
   border-width: 0px;
 }
+
+.css-19j5ahi-MuiInputBase-input-MuiOutlinedInput-input {
+  cursor: pointer !important;
+}

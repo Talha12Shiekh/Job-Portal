@@ -31,7 +31,7 @@ const JobSearchSection = () => {
   }
 
   return (
-    <Container maxWidth="lg" sx={{ p: matchesSM ? 5 : 10 }}>
+    <Container maxWidth="lg" sx={{ p: matchesSM ? 2 : 10 }}>
       <Grid container spacing={3}>
         <Grid size={{ lg: 4, md: 4, xs: 12 }}>
           <TextField

@@ -4,9 +4,12 @@ import { pages } from "../Constants";
 import CustomTypography from "./CustomTypography";
 import LoginAndSignUp from "./LoginAndSignUp";
 import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
 
 const SideBar = ({ open, setopen }) => {
   const handleClose = () => setopen((p) => !p);
+
+  const navigate = useNavigate()
 
   return (
     <Drawer
@@ -26,14 +29,14 @@ const SideBar = ({ open, setopen }) => {
         </IconButton>
       </Box>
       <Box>
-        {pages.map((page) => {
+        {pages.map(({key,text,link}) => {
           return (
             <Box
-            key={page}
+            key={key}
             width={"100%"}>
-              <Button sx={{ width: "100%" }} variant="text">
+              <Button sx={{ width: "100%" }} variant="text" onClick={() => {navigate(link);handleClose()}}>
                 <Box width="100%" textAlign="start">
-                <CustomTypography text={page} sx={{ my: 1 }} />
+                <CustomTypography text={text} sx={{ my: 1 }} />
                 </Box>
               </Button>
             </Box>

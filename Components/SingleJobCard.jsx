@@ -147,6 +147,7 @@ const SingleJobCard = (singlejob) => {
     vacancy,
     publishedOn,
     img,
+    liked
   };
   const checkingMD = useResponsivness("down", "md");
   const navigate = useNavigate();

@@ -8,7 +8,7 @@ const Categories = () => {
   const matches = useResponsivness("down", "sm");
   return (
     <Box width="100%" bgcolor={GREY_COLOR}>
-      <Container maxWidth="lg" sx={{ px: 10,pt:8,pb:2 }}>
+      <Container maxWidth="lg" sx={{ px: matches ? 2 : 10,pt:8,pb:2 }}>
         <Typography mb={8} variant={matches ? "h5" : "h4"} className="poppins">
           Popular Categories
         </Typography>
