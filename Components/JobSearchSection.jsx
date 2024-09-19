@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import CustomTypography from "./CustomTypography";
 import { COUNTRIES, GREEN_COLOR, searches } from "../Constants";
 import useResponsivness from "../Hooks/useResponsivness";
+import ScreenWrapper from "./ScreenWrapper";
 
 const JobSearchSection = () => {
   const matches = useResponsivness("down", "lg");
@@ -31,7 +32,7 @@ const JobSearchSection = () => {
   }
 
   return (
-    <Container maxWidth="lg" sx={{ p: matchesSM ? 2 : 10 }}>
+    <ScreenWrapper maxWidth="lg" bgcolor="" sx={{ p: matchesSM ? 2 : 10 }}>
       <Grid container spacing={3}>
         <Grid size={{ lg: 4, md: 4, xs: 12 }}>
           <TextField
@@ -81,7 +82,7 @@ const JobSearchSection = () => {
           })}
         </Box>
       </Box>
-    </Container>
+    </ScreenWrapper>
   );
 };
 

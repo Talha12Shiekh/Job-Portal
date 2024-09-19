@@ -10,6 +10,7 @@ import JobSearchSection from "../Components/JobSearchSection";
 import JobOrExpert from "../Components/JobOrExpert";
 import Categories from "../Screens/Categories";
 import JobDetailsScreen from "../Screens/JobDetailsScreen.jsx";
+import BrowseJobsScreen from "../Screens/BrowseJobsScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "browsejobs",
-        element: <h1>Browsejobs</h1>,
+        element: <BrowseJobsScreen/>,
       },
       {
         path: "contacts",
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: "jobdetailsscreen",
         element: <JobDetailsScreen/>,
-      },
+      }
     ],
   },
 ]);

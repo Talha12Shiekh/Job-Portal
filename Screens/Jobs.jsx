@@ -4,6 +4,7 @@ import { GREEN_COLOR, GREY_COLOR, JOBS } from "../Constants";
 import useResponsivness from "../Hooks/useResponsivness";
 import CustomTypography from "../Components/CustomTypography";
 import SingleJobCard from "../Components/SingleJobCard";
+import ScreenWrapper from "../Components/ScreenWrapper";
 
 const Jobs = () => {
   const [bgfilled, setbgfilled] = useState(true);
@@ -11,8 +12,7 @@ const Jobs = () => {
 
   const handleBgChange = () => setbgfilled((p) => !p);
   return (
-    <Box py={5} width="100%" bgcolor={GREY_COLOR}>
-      <Container maxWidth="lg">
+    <ScreenWrapper bgcolor={GREY_COLOR} sx={{py:5}}>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Typography variant={matches ? "h5" : "h4"} className="poppins">
             Job Listing
@@ -61,8 +61,7 @@ const Jobs = () => {
           }
           return <SingleJobCard key={key} {...jobobject} />;
         })}
-      </Container>
-    </Box>
+    </ScreenWrapper>
   );
 };
 
