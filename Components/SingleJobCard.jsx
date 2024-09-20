@@ -2,7 +2,7 @@ import { Box, Button, Typography, IconButton, Container } from "@mui/material";
 import React, { useState } from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import { GREEN_COLOR, GREY_COLOR, LIGHT_GREEN_COLOR } from "../Constants";
+import { getObject, GREEN_COLOR, GREY_COLOR, LIGHT_GREEN_COLOR } from "../Constants";
 import CustomTypography from "./CustomTypography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -100,7 +100,7 @@ export const HeartButton = ({ liked, setliked }) => {
   );
 };
 
-export const WholeContainer = ({ children,givepadding = true }) => {
+export const WholeContainer = ({ children, givepadding = true }) => {
   const checkingMD = useResponsivness("down", "md");
   return (
     <Box
@@ -121,39 +121,13 @@ export const WholeContainer = ({ children,givepadding = true }) => {
 
 const SingleJobCard = (singlejob) => {
   const [liked, setliked] = useState(false);
-  const {
-    name,
-    location,
-    country,
-    img,
-    description,
-    responsibility,
-    qualifications,
-    benefits,
-    salary,
-    vacancy,
-    publishedOn,
-    key,
-  } = singlejob;
-  const jobobject = {
-    name,
-    location,
-    country,
-    description,
-    responsibility,
-    qualifications,
-    benefits,
-    salary,
-    vacancy,
-    publishedOn,
-    img,
-    liked
-  };
+  const { name, location, country, img } = singlejob;
+  const jobobject = getObject(singlejob);
   const checkingMD = useResponsivness("down", "md");
   const navigate = useNavigate();
 
   return (
-    <Box display="flex" key={key} justifyContent="center" component="section">
+    <Box display="flex" justifyContent="center" component="section">
       <WholeContainer>
         <Box
           display="flex"
@@ -167,7 +141,7 @@ const SingleJobCard = (singlejob) => {
           <HeartButton liked={liked} setliked={setliked} />
           <Box>
             <Button
-              onClick={() => navigate("jobdetailsscreen", { state: jobobject })}
+              onClick={() => navigate("/jobdetailsscreen", { state: {...jobobject,liked} })}
               variant="outlined"
               color="success"
               sx={{ px: 2, py: 1 }}

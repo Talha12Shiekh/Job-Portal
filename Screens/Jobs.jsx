@@ -1,6 +1,6 @@
 import { Box, Container, Typography, Button } from "@mui/material";
 import React, { useState } from "react";
-import { GREEN_COLOR, GREY_COLOR, JOBS } from "../Constants";
+import { getObject, GREEN_COLOR, GREY_COLOR, JOBS } from "../Constants";
 import useResponsivness from "../Hooks/useResponsivness";
 import CustomTypography from "../Components/CustomTypography";
 import SingleJobCard from "../Components/SingleJobCard";
@@ -32,34 +32,8 @@ const Jobs = () => {
           </Button>
         </Box>
         {JOBS.map((job) => {
-          const {
-            name,
-            location,
-            country,
-            img,
-            description,
-            responsibility,
-            qualifications,
-            benefits,
-            salary,
-            vacancy,
-            publishedOn,
-            key
-          } = job;
-          const jobobject = {
-            name,
-            location,
-            country,
-            img,
-            description,
-            responsibility,
-            qualifications,
-            benefits,
-            salary,
-            vacancy,
-            publishedOn,
-          }
-          return <SingleJobCard key={key} {...jobobject} />;
+          const jobobject = getObject(job)
+          return <SingleJobCard key={job.key} {...jobobject} />
         })}
     </ScreenWrapper>
   );

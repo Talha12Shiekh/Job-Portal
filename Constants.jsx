@@ -89,10 +89,18 @@ export const JOBS = [
       "Strong problem-solving skills and ability to work in an agile environment.",
     ],
     benefits:
-      "Health insurance, flexible working hours, remote work options, and professional development opportunities. Health insurance, flexible working hours, remote work options, and professional development opportunities.",
+      "Health insurance, flexible working hours, remote work options, and professional development opportunities.",
     salary: "$60,000 - $80,000",
     vacancy: 3,
     publishedOn: "2024-09-01",
+    filter: {
+      location: "Remote",
+      category: "Web Development",
+      experience: "Entry Level (0-1 years)",
+      jobType: "Onsite",
+      qualification: "Bachelor's Degree",
+      gender: "Male",
+    },
   },
   {
     name: "UI/UX Designer",
@@ -113,10 +121,17 @@ export const JOBS = [
       "Proficiency in design tools like Sketch, Figma, and Adobe XD.",
     ],
     benefits:
-      "Comprehensive health coverage, annual bonus, stock options, and a creative work environment. Comprehensive health coverage, annual bonus, stock options, and a creative work environment.",
+      "Comprehensive health coverage, annual bonus, stock options, and a creative work environment.",
     salary: "$70,000 - $90,000",
     vacancy: 2,
     publishedOn: "2024-08-15",
+    filter: {
+      category: "Design & Creative",
+      experience: "Junior Level (1-3 years)",
+      jobType: "Remote",
+      qualification: "Bachelor's Degree",
+      gender: "Female",
+    },
   },
   {
     name: "Data Scientist",
@@ -137,10 +152,18 @@ export const JOBS = [
       "Proficiency in machine learning frameworks such as TensorFlow or PyTorch.",
     ],
     benefits:
-      "Work from home, paid time off, wellness programs, and opportunities for continuing education. Work from home, paid time off, wellness programs, and opportunities for continuing education.",
+      "Work from home, paid time off, wellness programs, and opportunities for continuing education.",
     salary: "$90,000 - $120,000",
     vacancy: 4,
     publishedOn: "2024-09-03",
+    filter: {
+      location: "Remote",
+      category: "Data Science",
+      experience: "Mid Level (3-5 years)",
+      jobType: "Remote",
+      qualification: "Master's Degree",
+      gender: "Male",
+    },
   },
   {
     name: "Digital Marketing Manager",
@@ -161,10 +184,18 @@ export const JOBS = [
       "Excellent understanding of social media platforms, email marketing, and online advertising.",
     ],
     benefits:
-      "Flexible working hours, health and dental insurance, team-building events, and performance-based bonuses Flexible working hours, health and dental insurance, team-building events, and performance-based bonuses.",
+      "Flexible working hours, health and dental insurance, team-building events, and performance-based bonuses.",
     salary: "£45,000 - £60,000",
     vacancy: 1,
     publishedOn: "2024-08-25",
+    filter: {
+      location: "Onsite",
+      category: "Marketing",
+      experience: "Senior Level (5-10 years)",
+      jobType: "Onsite",
+      qualification: "Bachelor's Degree",
+      gender: "Female",
+    },
   },
   {
     name: "Product Manager",
@@ -185,10 +216,18 @@ export const JOBS = [
       "Strong leadership and communication skills.",
     ],
     benefits:
-      "Competitive salary, health benefits, annual travel stipend, and opportunities for career growth Competitive salary, health benefits, annual travel stipend, and opportunities for career growth",
+      "Competitive salary, health benefits, annual travel stipend, and opportunities for career growth.",
     salary: "€60,000 - €80,000",
     vacancy: 2,
     publishedOn: "2024-09-02",
+    filter: {
+      location: "Onsite",
+      category: "Operations",
+      experience: "Junior Level (1-3 years)",
+      jobType: "Onsite",
+      qualification: "Bachelor's Degree",
+      gender: "Male",
+    },
   },
   {
     name: "DevOps Engineer",
@@ -209,12 +248,21 @@ export const JOBS = [
       "Proficiency with AWS, Docker, Kubernetes, and CI/CD tools.",
     ],
     benefits:
-      "Remote work flexibility, health and wellness programs, stock options, and annual performance bonuses Remote work flexibility, health and wellness programs, stock options, and annual performance bonuses",
+      "Remote work flexibility, health and wellness programs, stock options, and annual performance bonuses.",
     salary: "$80,000 - $100,000",
     vacancy: 3,
     publishedOn: "2024-08-30",
+    filter: {
+      location: "Remote",
+      category: "IT Support",
+      experience: "Mid Level (3-5 years)",
+      jobType: "Remote",
+      qualification: "Bachelor's Degree",
+      gender: "Male",
+    },
   },
 ];
+
 
 export const COUNTRIES = [
   "Afghanistan",
@@ -425,4 +473,73 @@ export const COUNTRIES = [
   "Zimbabwe",
 ];
 
+export function getObject(object) {
+  return {
+    name:object["name"],
+    location:object["location"],
+    country:object["country"],
+    img:object["img"],
+    description:object["description"],
+    responsibility:object["responsibility"],
+    qualifications:object["qualifications"],
+    benefits:object["benefits"],
+    salary:object["salary"],
+    vacancy:object["vacancy"],
+    publishedOn:object["publishedOn"],
+  };
+}
 
+const experienceLevels = [
+  "Internship (No experience required)",
+  "Entry Level (0-1 years)",
+  "Junior Level (1-3 years)",
+  "Mid Level (3-5 years)",
+  "Senior Level (5-10 years)",
+  "Expert/Executive Level (10+ years)",
+  "Freelance/Contract"
+];
+
+const qualificationLevels = [
+  "High School Diploma",
+  "Associate Degree",
+  "Bachelor's Degree",
+  "Master's Degree",
+  "Doctorate (PhD)",
+  "Diploma/Certification",
+  "No Formal Education Required"
+];
+
+
+let filterkey = 1;
+export const FILTERS = [
+  {
+    type:"Location",
+    options:COUNTRIES,
+    key:filterkey++
+  },  
+  {
+    type:"Category",
+    options:CATEGORIES.map(c => c.category),
+    key:filterkey++
+  },  
+  {
+    type:"Experience",
+    options:experienceLevels,
+    key:filterkey++
+  },  
+  {
+    type:"Job Type",
+    options:["Onsite","Remote"],
+    key:filterkey++
+  },  
+  {
+    type:"Qualification",
+    options:qualificationLevels,
+    key:filterkey++
+  },  
+  {
+    type:"Gender",
+    options:["Male","Female"],
+    key:filterkey++
+  },  
+]
