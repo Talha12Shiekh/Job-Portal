@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const Home = lazy(() => import("../Screens/Home"));
 const Jobs = lazy(() => import("../Screens/Jobs"));
+const Contacts = lazy(() => import("../Screens/Contacts.jsx"));
 
 import JobSearchSection from "../Components/JobSearchSection";
 import JobOrExpert from "../Components/JobOrExpert";
@@ -20,13 +21,13 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: (
-          <Suspense>
+          <>
             <Home />
             <JobSearchSection />
             <Categories />
             <Jobs />
             <JobOrExpert />
-          </Suspense>
+          </>
         ),
       },
       {
@@ -35,16 +36,16 @@ const router = createBrowserRouter([
       },
       {
         path: "browsejobs",
-        element: <BrowseJobsScreen/>,
+        element: <BrowseJobsScreen />,
       },
       {
         path: "contacts",
-        element: <h1>Contacts</h1>,
+        element: <Contacts />,
       },
       {
         path: "jobdetailsscreen",
-        element: <JobDetailsScreen/>,
-      }
+        element: <JobDetailsScreen />,
+      },
     ],
   },
 ]);

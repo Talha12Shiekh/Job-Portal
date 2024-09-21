@@ -3,12 +3,37 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { HomeOutlined,PhoneAndroid,Email } from "@mui/icons-material";
 
 export const pages = [
   { text: "Home", link: "/", key: 1 },
   { text: "Browse Jobs", link: "browsejobs", key: 2 },
   { text: "Contact", link: "contacts", key: 3 },
 ];
+
+
+function setIconStyles(height,width){
+  return { color: "grey", height, width }
+}
+
+
+export const CONTACTS_INFORMATION = [
+  {
+    icon:<HomeOutlined sx={setIconStyles(40,40)} />,
+    text:"Bengaluru, Karnataka, India",
+    key:1,
+  },
+  {
+    icon:<PhoneAndroid sx={setIconStyles(35,35)} />,
+    text:"+91 84558 07965",
+    key:2,
+  },
+  {
+    icon:<Email sx={setIconStyles(35,35)} />,
+    text:"support@zidio.in",
+    key:3,
+  },
+]
 
 export const searches = [
   "Design & Creative",

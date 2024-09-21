@@ -4,8 +4,9 @@ import { GREEN_COLOR, GREY_COLOR } from "../Constants";
 import bgImage from "../public/background1.webp";
 import CustomTypography from "./CustomTypography";
 import useResponsivness from "../Hooks/useResponsivness";
+import { Navigate, useNavigate } from "react-router-dom";
 
-const ReusableJobExpertSection = ({heading,description,btnText}) => {
+const ReusableJobExpertSection = ({heading,description,btnText,onClick}) => {
     const checkingLG = useResponsivness("down","lg")
     return <Box
     display="flex"
@@ -21,13 +22,16 @@ const ReusableJobExpertSection = ({heading,description,btnText}) => {
       text={description}
       textAlign="center"
     />
-    <Button variant="outlined" sx={{ bgcolor: GREEN_COLOR }}>
+    <Button onClick={onClick} variant="outlined" sx={{ bgcolor: GREEN_COLOR }}>
       <CustomTypography color="black" text={btnText} />
     </Button>
   </Box>
 }
 
 const JobOrExpert = () => {
+
+  const navigate = useNavigate();
+
   return (
     <Box py={5} bgcolor={GREY_COLOR}>
       <Stack
@@ -46,6 +50,7 @@ const JobOrExpert = () => {
         heading="Looking for a Job?"
         description={"We provide online instant cash loans with quick approval"}
         btnText={"Browse Job"}
+        onClick={() => navigate("browsejobs")}
         />
         <ReusableJobExpertSection
         heading="Looking for a Expert?"

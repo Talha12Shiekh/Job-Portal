@@ -6,16 +6,19 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 
 import "./App.css";
+import Loader from "../Components/Loader";
 
 function App() {
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
   return (
-    <Suspense>
+    <>
       <Navbar />
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
       <Footer />
-    </Suspense>
+    </>
   );
 }
 

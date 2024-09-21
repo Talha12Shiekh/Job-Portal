@@ -5,10 +5,13 @@ import useResponsivness from "../Hooks/useResponsivness";
 import CustomTypography from "../Components/CustomTypography";
 import SingleJobCard from "../Components/SingleJobCard";
 import ScreenWrapper from "../Components/ScreenWrapper";
+import { useNavigate } from "react-router-dom";
 
 const Jobs = () => {
   const [bgfilled, setbgfilled] = useState(true);
   const matches = useResponsivness("down", "sm");
+
+  const navigate = useNavigate();
 
   const handleBgChange = () => setbgfilled((p) => !p);
   return (
@@ -21,6 +24,7 @@ const Jobs = () => {
             variant={bgfilled ? "outlined" : "contained"}
             color="success"
             sx={{ px: 4, py: 1.5 }}
+            onClick={() => navigate("browsejobs")}
           >
             <CustomTypography
               text="Browse More Jobs"
@@ -28,6 +32,7 @@ const Jobs = () => {
               fontSize="1rem"
               onMouseOver={handleBgChange}
               onMouseLeave={handleBgChange}
+
             />
           </Button>
         </Box>
