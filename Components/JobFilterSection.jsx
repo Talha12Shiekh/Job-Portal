@@ -15,7 +15,6 @@ import { GreenButton } from "../Screens/Home";
 
 const JobFilterSection = ({handleApplyFilters,filters,setfilters,setjobs}) => {
   const [salary, setsalary] = useState([20,40]);
-  const [keyword, setkeyword] = useState("");
 
   function handleChangeFilter(filtervalue, index) {
     setfilters((prev) => {
@@ -32,22 +31,12 @@ const JobFilterSection = ({handleApplyFilters,filters,setfilters,setjobs}) => {
 
   function handleResetFilters() {
     setsalary([20,40]);
-    setkeyword("");
     setfilters(FILTERS.map((_) => ""));
     setjobs(JOBS)
   }
   return (
     <>
       <CustomTypography text="Filter" color="black" fontSize="1.5rem" mb={5} />
-      <TextField
-        value={keyword}
-        onChange={(e) => setkeyword(e.target.value)}
-        fullWidth
-        id="outlined-basic"
-        label="Search keyword"
-        variant="outlined"
-        sx={{ mb: 4 }}
-      />
       {FILTERS.map(({ type, options }, index) => {
         return (
           <FormControl fullWidth sx={{ mb: 4 }}>

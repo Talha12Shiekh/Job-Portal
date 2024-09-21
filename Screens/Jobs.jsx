@@ -7,7 +7,7 @@ import SingleJobCard from "../Components/SingleJobCard";
 import ScreenWrapper from "../Components/ScreenWrapper";
 import { useNavigate } from "react-router-dom";
 
-const Jobs = () => {
+const Jobs = ({jobs}) => {
   const [bgfilled, setbgfilled] = useState(true);
   const matches = useResponsivness("down", "sm");
 
@@ -36,7 +36,7 @@ const Jobs = () => {
             />
           </Button>
         </Box>
-        {JOBS.map((job) => {
+        {jobs.map((job) => {
           const jobobject = getObject(job)
           return <SingleJobCard key={job.key} {...jobobject} />
         })}

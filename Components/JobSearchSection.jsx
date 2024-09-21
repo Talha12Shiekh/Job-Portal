@@ -12,11 +12,11 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import CustomTypography from "./CustomTypography";
-import { COUNTRIES, GREEN_COLOR, searches } from "../Constants";
+import { COUNTRIES, GREEN_COLOR, JOBS, searches } from "../Constants";
 import useResponsivness from "../Hooks/useResponsivness";
 import ScreenWrapper from "./ScreenWrapper";
 
-const JobSearchSection = () => {
+const JobSearchSection = ({ setjobs }) => {
   const matches = useResponsivness("down", "lg");
   const [location, setlocation] = useState("India");
   const matchesSM = useResponsivness("down", "sm");
@@ -29,6 +29,20 @@ const JobSearchSection = () => {
 
   function handleChange(e) {
     setlocation(e.target.value);
+  }
+
+  function handleFilterJobs() {
+    const filteredJobs = JOBS.filter((j) => {
+      const checkingLocation = location
+        ? j.country.toLowerCase() === location.toLowerCase()
+        : true;
+      const checkingKeyWord = value
+        ? j.name.toLowerCase() === value.toLowerCase()
+        : true;
+
+      return checkingLocation && checkingKeyWord;
+    });
+    setjobs(filteredJobs);
   }
 
   return (
@@ -55,13 +69,22 @@ const JobSearchSection = () => {
               onChange={handleChange}
             >
               {COUNTRIES.map((elem) => {
-                return <MenuItem key={elem} value={elem}>{elem}</MenuItem>;
+                return (
+                  <MenuItem key={elem} value={elem}>
+                    {elem}
+                  </MenuItem>
+                );
               })}
             </Select>
           </FormControl>
         </Grid>
         <Grid size={{ lg: 4, xs: 12 }}>
-          <Button fullWidth variant="contained" sx={{ bgcolor: GREEN_COLOR }}>
+          <Button
+            fullWidth
+            variant="contained"
+            sx={{ bgcolor: GREEN_COLOR }}
+            onClick={handleFilterJobs}
+          >
             <CustomTypography text="Find Job" sx={{ p: 1 }} />
           </Button>
         </Grid>

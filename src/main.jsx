@@ -12,6 +12,7 @@ import JobOrExpert from "../Components/JobOrExpert";
 import Categories from "../Screens/Categories";
 import JobDetailsScreen from "../Screens/JobDetailsScreen.jsx";
 import BrowseJobsScreen from "../Screens/BrowseJobsScreen.jsx";
+import JobsSearchandViewSection from "../Components/JobsSearchandViewSection.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,9 +24,8 @@ const router = createBrowserRouter([
         element: (
           <>
             <Home />
-            <JobSearchSection />
+            <JobsSearchandViewSection/>
             <Categories />
-            <Jobs />
             <JobOrExpert />
           </>
         ),

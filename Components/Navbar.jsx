@@ -6,8 +6,8 @@ import {
   IconButton,
 } from "@mui/material";
 import React, { useState } from "react";
-import bgImage from "../public/backgroundImage.webp";
-import logo from "../public/logo.webp";
+import bgImage from "/backgroundImage.webp";
+import logo from "/logo.webp";
 import { pages } from "../Constants";
 import CustomTypography from "./CustomTypography";
 import MenuIcon from "@mui/icons-material/Menu";

@@ -1,7 +1,7 @@
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import React from "react";
 import { GREEN_COLOR, GREY_COLOR } from "../Constants";
-import bgImage from "../public/background1.webp";
+import bgImage from "/background1.webp";
 import CustomTypography from "./CustomTypography";
 import useResponsivness from "../Hooks/useResponsivness";
 import { Navigate, useNavigate } from "react-router-dom";

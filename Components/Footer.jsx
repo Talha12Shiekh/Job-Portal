@@ -5,7 +5,7 @@ import CustomTypography from "./CustomTypography";
 import useResponsivness from "../Hooks/useResponsivness";
 import ScreenWrapper from "./ScreenWrapper";
 
-const SingleIcon = ({ Icon, link, key }) => {
+const SingleIcon = ({ Icon, link }) => {
   const [bg, setbg] = useState(false);
   return (
     <Box
@@ -14,7 +14,6 @@ const SingleIcon = ({ Icon, link, key }) => {
       onMouseOver={() => setbg(true)}
     >
       <Button
-        key={key}
         href={link}
         target="_blank"
         sx={{ width: "100%", height: "100%" }}
@@ -61,7 +60,7 @@ const Footer = () => {
         }}
       >
         {SOCIAL_LINKS.map(({ Icon, link, key }) => {
-          return <SingleIcon key={key} Icon={Icon} link={link} />;
+          return <SingleIcon key={key} Icon={Icon} link={link} />
         })}
       </Container>
     </ScreenWrapper>
