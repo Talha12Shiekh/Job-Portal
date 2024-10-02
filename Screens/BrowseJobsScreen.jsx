@@ -18,6 +18,8 @@ import useResponsivness from "../Hooks/useResponsivness";
 const BrowseJobsScreen = () => {
   const [filters, setfilters] = useState(FILTERS.map((_) => ""));
 
+  const [salaryselection, setsalaryselection] = useState([0, 0]);
+
   const [jobs, setjobs] = useState(JOBS);
 
   const [
@@ -30,7 +32,11 @@ const BrowseJobsScreen = () => {
   ] = filters;
 
   function handleApplyFilters() {
-    const filteredJobs = jobs.filter(({ filter, country }) => {
+    const filteredJobs = jobs.filter(({ filter, country, salary }) => {
+      const checkingEmptyFilter = !!salaryselection[0] || !!salaryselection[1];
+      const salaryFilter = (salaryselection[0] > salary[0] && salaryselection[1] <= salary[1]);
+      const filteredSalary = checkingEmptyFilter ? salaryFilter : true;
+
       return (
         (locationFilter !== ""
           ? country.toLowerCase() === locationFilter.toLowerCase()
@@ -46,11 +52,11 @@ const BrowseJobsScreen = () => {
           : true) &&
         (qualificationFilter !== ""
           ? filter.qualification.toLowerCase() ===
-            qualificationFilter.toLowerCase()
+          qualificationFilter.toLowerCase()
           : true) &&
         (genderFilter !== ""
           ? filter.gender.toLowerCase() === genderFilter.toLowerCase()
-          : true)
+          : true) && filteredSalary
       );
     });
     setjobs(filteredJobs);
@@ -67,6 +73,8 @@ const BrowseJobsScreen = () => {
                 setfilters={setfilters}
                 handleApplyFilters={handleApplyFilters}
                 setjobs={setjobs}
+                salary={salaryselection}
+                setsalary={setsalaryselection}
               />
             </Box>
           </Grid>

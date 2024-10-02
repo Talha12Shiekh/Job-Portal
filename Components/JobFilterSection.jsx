@@ -13,8 +13,8 @@ import CustomTypography from "./CustomTypography";
 import { FILTERS, GREEN_COLOR, JOBS } from "../Constants";
 import { GreenButton } from "../Screens/Home";
 
-const JobFilterSection = ({handleApplyFilters,filters,setfilters,setjobs}) => {
-  const [salary, setsalary] = useState([20,40]);
+const JobFilterSection = ({handleApplyFilters,filters,setfilters,setjobs,salary,setsalary}) => {
+  
 
   function handleChangeFilter(filtervalue, index) {
     setfilters((prev) => {
@@ -30,7 +30,7 @@ const JobFilterSection = ({handleApplyFilters,filters,setfilters,setjobs}) => {
 
 
   function handleResetFilters() {
-    setsalary([20,40]);
+    setsalary([0,0]);
     setfilters(FILTERS.map((_) => ""));
     setjobs(JOBS)
   }

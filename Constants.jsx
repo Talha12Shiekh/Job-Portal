@@ -115,7 +115,7 @@ export const JOBS = [
     ],
     benefits:
       "Health insurance, flexible working hours, remote work options, and professional development opportunities.",
-    salary: "$60,000 - $80,000",
+    salary: [60 ,80],
     vacancy: 3,
     publishedOn: "2024-09-01",
     filter: {
@@ -147,7 +147,7 @@ export const JOBS = [
     ],
     benefits:
       "Comprehensive health coverage, annual bonus, stock options, and a creative work environment.",
-    salary: "$70,000 - $90,000",
+    salary: [70 ,90],
     vacancy: 2,
     publishedOn: "2024-08-15",
     filter: {
@@ -178,7 +178,7 @@ export const JOBS = [
     ],
     benefits:
       "Work from home, paid time off, wellness programs, and opportunities for continuing education.",
-    salary: "$90,000 - $120,000",
+    salary: [90 ,100],
     vacancy: 4,
     publishedOn: "2024-09-03",
     filter: {
@@ -210,7 +210,7 @@ export const JOBS = [
     ],
     benefits:
       "Flexible working hours, health and dental insurance, team-building events, and performance-based bonuses.",
-    salary: "£45,000 - £60,000",
+    salary: [45 ,60],
     vacancy: 1,
     publishedOn: "2024-08-25",
     filter: {
@@ -242,7 +242,7 @@ export const JOBS = [
     ],
     benefits:
       "Competitive salary, health benefits, annual travel stipend, and opportunities for career growth.",
-    salary: "€60,000 - €80,000",
+    salary: [60 ,80],
     vacancy: 2,
     publishedOn: "2024-09-02",
     filter: {
@@ -274,7 +274,7 @@ export const JOBS = [
     ],
     benefits:
       "Remote work flexibility, health and wellness programs, stock options, and annual performance bonuses.",
-    salary: "$80,000 - $100,000",
+    salary: [80,100],
     vacancy: 3,
     publishedOn: "2024-08-30",
     filter: {

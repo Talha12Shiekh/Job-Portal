@@ -209,7 +209,7 @@ const JobDetailsScreen = () => {
                 ltext={"Vacancy"}
                 rtext={`${vacancy} Positions`}
               />
-              <JobSummaryComponent ltext={"Salary"} rtext={salary} />
+              <JobSummaryComponent ltext={"Salary"} rtext={`$${salary[0]} - $${salary[1]}`} />
               <JobSummaryComponent ltext={"Location"} rtext={country} />
               <JobSummaryComponent ltext={"Job Nature"} rtext={location} />
             </Box>
